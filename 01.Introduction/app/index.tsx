@@ -3,14 +3,33 @@ import { StyleSheet, Text, View } from "react-native";
 export default function HomeScreen() {
   return (
       <View>
-        <Text style={styles.colorBlue}>Hello, World!</Text>
+        <View style={styles.square}>
+          <Text style={styles.colorBlue}>Hello, World!</Text>
+        </View>
       </View>
   );
 }
 
+// setting font color to blue and then putting it inside a purple square
 const styles = StyleSheet.create({
   colorBlue:{
     color: "blue",
-    fontSize: 12
-  }
-})
+    fontSize: 20
+  },
+  square:{
+        color: "blue",
+        height: 300,
+        width: 300,
+        backgroundColor: "purple"
+}})
+
+
+// drawing a blue square
+// const styles2 = StyleSheet.create({
+//   square:{
+//     color: "blue",
+//     height: 300,
+//     width: 300,
+//     backgroundColor: "blue"
+//   }
+// })
