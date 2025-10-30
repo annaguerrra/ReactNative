@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Button, StyleSheet, Text, TextInput, TouchableOpacity, Image, View } from "react-native";
 
 export default function HomeScreen() {
   const [text, setText] = useState("")
 
   return (
-      <View style={{flex: 1, justifyContent: "center", alignItems: "center",}}>
+    <View style={{flex: 1, justifyContent: "center", alignItems: "center",}}>
+        <Image 
+          style={styles.image}
+          source={require("../assets/images/gatinho.jpeg")}/>
         <View style={styles.square}>
           <Text style={styles.colorBlue}>Hello, World!</Text>
           <TextInput 
@@ -22,6 +25,9 @@ export default function HomeScreen() {
           <Button
             title="Press me"
             onPress={() => console.log("Hello!")}></Button>
+
+
+            
         </View>
       </View>
   );
@@ -39,7 +45,14 @@ const styles = StyleSheet.create({
         width: 300,
         backgroundColor: "purple",
         borderRadius: 15
-}})
+      },
+  image:{
+    width: 300,
+    height: 300,
+    margin: 10,
+    alignItems: "flex-end"
+  }
+})
 
 
 // drawing a blue square
