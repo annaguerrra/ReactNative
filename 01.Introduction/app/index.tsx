@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300,
     margin: 10,
-    alignItems: "flex-end"
+    alignItems: "flex-end",
+    borderRadius: 150
   }
 })
 
