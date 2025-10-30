@@ -1,12 +1,27 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { useState } from "react";
+import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function HomeScreen() {
+  const [text, setText] = useState("")
+
   return (
       <View style={{flex: 1, justifyContent: "center", alignItems: "center",}}>
         <View style={styles.square}>
           <Text style={styles.colorBlue}>Hello, World!</Text>
-          <TextInput placeholder="Type here..." style={{color:"white"}}/> {/* input box */}
+          <TextInput 
+            placeholder="Type here..."
+            style={{color:"white"}}
+            onChangeText={text => setText(text)}/> {/* input box */}
           
+          <TouchableOpacity>
+            <View>
+              <Text>oiiiiii</Text>
+            </View>
+          </TouchableOpacity>
+          
+          <Button
+            title="Press me"
+            onPress={() => console.log("Hello!")}></Button>
         </View>
       </View>
   );
