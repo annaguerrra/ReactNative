@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function HomeScreen() {
   return (
       <View style={{flex: 1, justifyContent: "center", alignItems: "center",}}>
         <View style={styles.square}>
           <Text style={styles.colorBlue}>Hello, World!</Text>
+          <TextInput placeholder="Type here..." style={{color:"white"}}/> {/* input box */}
+          
         </View>
       </View>
   );
