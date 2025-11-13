@@ -1,6 +1,15 @@
-import { Button, StyleSheet, Text, TextInput, TouchableOpacity, Image, View } from "react-native";
+import { StyleSheet, Text, TextInput, TouchableOpacity, Image, View } from "react-native";
+import { getAuth } from 'firebase/auth';
+import { app } from '../firebaseConfig';
+import { useState } from "react";
 
 export default function App(){
+    const [ email, setEmail] = useState("");
+    const [ password, setPassword] = useState("");
+    const [ confirmPassword, setConfirmPassword] = useState("");  
+
+    const auth = getAuth(app) 
+
     return(
         <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#191313"}}>
 

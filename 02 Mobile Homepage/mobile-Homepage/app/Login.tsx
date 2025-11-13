@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, TextInput, TouchableOpacity, Image, View } from "react-native";
+import { StyleSheet, Text, TextInput, TouchableOpacity, Image, View } from "react-native";
 
 export default function App(){
     return(
