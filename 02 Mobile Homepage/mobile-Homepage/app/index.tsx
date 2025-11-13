@@ -1,7 +1,7 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, Image, View } from "react-native";
-import { getAuth } from 'firebase/auth';
+import { StyleSheet, Text, TextInput, TouchableOpacity, Image, View, Alert } from "react-native";
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../firebaseConfig';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function App(){
     const [ email, setEmail] = useState("");
@@ -10,27 +10,43 @@ export default function App(){
 
     const auth = getAuth(app) 
 
+    const signUp = () => {
+        if(password === confirmPassword){
+            createUserWithEmailAndPassword(auth, email, password)
+        } 
+        else{
+            return Alert.alert("Error. Login or Password are Incorrect");
+        }
+    }
+
+    useEffect(() => {
+        console.log(email, password, confirmPassword)
+    }, [email, password, confirmPassword])
+
     return(
         <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#191313"}}>
 
             <View style={styles.LoginBorder}>
                 <Text style={styles.Login}>Sign Up</Text>
 
-                <TextInput style={styles.loginbox} placeholder="E-mail, Login or Telephone"></TextInput>
-                <TextInput style={styles.loginbox} placeholder="Password"></TextInput>
-                <TextInput style={styles.loginbox} placeholder="Confirm Password"></TextInput>
+                <TextInput style={styles.loginbox} onChangeText={(value) => setEmail(value)} placeholder="E-mail, Login or Telephone"/>
+                <TextInput style={styles.loginbox} onChangeText={(value) => setPassword(value)} placeholder="Password"></TextInput>
+                <TextInput style={styles.loginbox} onChangeText={(value) => setConfirmPassword(value)} placeholder="Confirm Password"></TextInput>
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={() => signUp()}>
                     <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-                        <Text style={styles.fonteLogin}>Sign Up</Text>
-                    </View>
-                </TouchableOpacity>
+                        <Text style={styles.fonteLogin}>
+                            Sign Up
+                        </Text>
+                    </View> </TouchableOpacity>
 
                 <View style={styles.googleContainer}>
                     <Image
                         source={require("../assets/images/google.png")}
                         style={styles.googleIcon}/>
-                    <Text style={styles.googleText}>Sign up with Google Account</Text> 
+                    <Text style={styles.googleText}>
+                        Sign up with Google Account
+                    </Text> 
                 </View> 
 
                 <View style={{ flexDirection: "row", marginTop: 15 }}>
@@ -40,12 +56,10 @@ export default function App(){
                 
                 <TouchableOpacity onPress={() => {/* navegação aqui */}}>
                     <Text style={{ color: "#ae0000", fontSize: 12, fontWeight: "bold" }}>
-                    Login 
+                        Login 
                     </Text>
                 </TouchableOpacity>
                 </View>
-
-
             </View>
         </View>
     )
