@@ -30,12 +30,10 @@ export default function App(){
                 
                 <TouchableOpacity onPress={() => {/* navegação aqui */}}>
                     <Text style={{ color: "#ae0000", fontSize: 12, fontWeight: "bold" }}>
-                    Sign up
+                        Sign up
                     </Text>
                 </TouchableOpacity>
                 </View>
-
-
             </View>
         </View>
     )
