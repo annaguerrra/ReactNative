@@ -1,6 +1,7 @@
+import { router } from "expo-router";
 import { StyleSheet, Text, TextInput, TouchableOpacity, Image, View } from "react-native";
 
-export default function App(){
+export default function Login(){
     return(
         <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#191313"}}>
 
@@ -28,7 +29,7 @@ export default function App(){
                     Don't have an account?{" "}
                 </Text>
                 
-                <TouchableOpacity onPress={() => {/* navegação aqui */}}>
+                <TouchableOpacity onPress={() => router.navigate('/')}>
                     <Text style={{ color: "#ae0000", fontSize: 12, fontWeight: "bold" }}>
                         Sign up
                     </Text>

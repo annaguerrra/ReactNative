@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../firebaseConfig';
 import { useEffect, useState } from "react";
 import Icon from 'react-native-vector-icons/FontAwesome'; 
+import { router } from "expo-router";
 
 export default function App(){
     const [email, setEmail] = useState("");
@@ -11,14 +12,26 @@ export default function App(){
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const auth = getAuth(app);
+    const minpassword = 6;
 
-    const signUp = () => {
-        if (password === confirmPassword) {
-            createUserWithEmailAndPassword(auth, email, password);
-        } else {
-            return Alert.alert("Error", "Login or Password are Incorrect");
+    const signUp = async () => {
+        if(password.length < minpassword){
+            return Alert.alert("The password must contain at least 6 characters!");
+        }
+        if(password !== confirmPassword){
+            return Alert.alert("The passwords do not match!");
+        }
+
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            Alert.alert("Cadastrado com sucesso!");
+            router.navigate('/Login');
+        } 
+        catch (e) {
+            Alert.alert("This e-mail is already in use.");
         }
     };
+
 
     useEffect(() => {
         console.log(email, password, confirmPassword);
@@ -65,7 +78,7 @@ export default function App(){
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity style={styles.button} onPress={signUp}>
+                <TouchableOpacity style={styles.button} onPress={() => signUp()}>
                     <Text style={styles.buttonText}>Sign Up</Text>
                 </TouchableOpacity>
 
@@ -80,7 +93,7 @@ export default function App(){
                 <View style={styles.bottomRow}>
                     <Text style={styles.bottomText}>Already have an account? </Text>
 
-                    <TouchableOpacity onPress={() => {}}>
+                    <TouchableOpacity onPress={() => router.navigate('/Login')}>
                         <Text style={styles.loginLink}>Login</Text>
                     </TouchableOpacity>
                 </View>
