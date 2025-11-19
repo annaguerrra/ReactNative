@@ -1,8 +1,34 @@
+import { app } from "@/firebaseConfig";
 import { router } from "expo-router";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, Image, View } from "react-native";
+import Swal from "sweetalert2";
 
 export default function Login(){
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState(""); 
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+    const auth = getAuth(app);
+
+    const signIn = async () => {
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+        router.navigate('/homepage');
+    } catch (e) {
+        Swal.fire({
+            icon: "error",
+            title: "500 - Internal Server Error",
+            text: "The server encountered an internal error or misconfiguration and was unable to complete your request"
+        });
+    }
+};
+
+    
     return(
+
         <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#191313"}}>
 
             <View style={styles.LoginBorder}>
@@ -11,7 +37,7 @@ export default function Login(){
                 <TextInput style={styles.loginbox} placeholder="E-mail, Login or Telephone"></TextInput>
                 <TextInput style={styles.loginbox} placeholder="Password"></TextInput>
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={() => signIn()}>
                     <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
                         <Text style={styles.fonteLogin}>Login</Text>
                     </View>
