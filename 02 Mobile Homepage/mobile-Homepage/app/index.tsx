@@ -4,6 +4,7 @@ import { app } from '../firebaseConfig';
 import { useEffect, useState } from "react";
 import Icon from 'react-native-vector-icons/FontAwesome'; 
 import { router } from "expo-router";
+import Swal from 'sweetalert2';
 
 export default function App(){
     const [email, setEmail] = useState("");
@@ -16,19 +17,34 @@ export default function App(){
 
     const signUp = async () => {
         if(password.length < minpassword){
-            return Alert.alert("The password must contain at least 6 characters!");
+            return Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "The password must contain at least 6 characters!"
+            })
         }
         if(password !== confirmPassword){
-            return Alert.alert("The passwords do not match!");
+            return Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "The passwords does not match."
+            })
         }
-
         try {
             await createUserWithEmailAndPassword(auth, email, password);
-            Alert.alert("Cadastrado com sucesso!");
+            Swal.fire({
+                icon: "success",
+                title: "Success!",
+                text: "User registered"
+            });
             router.navigate('/Login');
         } 
         catch (e) {
-            Alert.alert("This e-mail is already in use.");
+            return Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "This e-mail is already in use"
+            })
         }
     };
 
