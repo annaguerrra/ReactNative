@@ -20,8 +20,8 @@ export default function Login() {
         } catch (e) {
             Swal.fire({
                 icon: "error",
-                title: "500 - Internal Server Error",
-                text: "The server encountered an internal error or misconfiguration and was unable to complete your request"
+                title: "Error",
+                text: "Invalid credentials. Try again!"
             });
         }
     };
@@ -29,9 +29,9 @@ export default function Login() {
     return (
         <View style={styles.container}>
 
-            <View style={styles.LoginBorder}>
+            <View style={styles.loginCard}>
                 
-                <Text style={styles.Login}>Login</Text>
+                <Text style={styles.loginTitle}>Login</Text>
 
                 <TextInput
                     style={styles.input}
@@ -42,7 +42,7 @@ export default function Login() {
 
                 <View style={styles.passwordBox}>
                     <TextInput
-                        style={styles.passwordinput}
+                        style={styles.passwordInput}
                         placeholder="Password"
                         placeholderTextColor="#777"
                         secureTextEntry={!isPasswordVisible}
@@ -50,15 +50,19 @@ export default function Login() {
                     />
 
                     <TouchableOpacity onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
-                        <Icon name={isPasswordVisible ? "eye-slash" : "eye"} size={20} color={"#ddd"} />
+                        <Icon 
+                            name={isPasswordVisible ? "eye-slash" : "eye"} 
+                            size={20} 
+                            color={"#aaaaaa"} 
+                        />
                     </TouchableOpacity>
                 </View>
 
                 <TouchableOpacity style={styles.button} onPress={signIn}>
-                    <Text style={styles.fonteLogin}>Login</Text>
+                    <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
 
-                <View style={styles.googleContainer}>
+                <View style={styles.googleRow}>
                     <Image
                         source={require("../assets/images/google.png")}
                         style={styles.googleIcon}
@@ -70,7 +74,7 @@ export default function Login() {
                     <Text style={styles.bottomText}>Don't have an account? </Text>
 
                     <TouchableOpacity onPress={() => router.navigate('/')}>
-                        <Text style={styles.bottomLink}>Sign up</Text>
+                        <Text style={styles.loginLink}>Sign up</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -80,116 +84,113 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    container:{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#191313"
+        backgroundColor: "#1A1410",
     },
 
-    Login: {
-        color: "#ae0000",
-        fontSize: 30,
-        fontWeight: "bold",
-        letterSpacing: 1,
-        padding: 20
-    },
-
-    LoginBorder: {
+    loginCard:{
         width: "80%",
-        height: "45%",
-        padding: 20,
-        backgroundColor: "#1f1c1c",
-        justifyContent: "center",
+        padding: 25,
+        backgroundColor: "#221B16",
+        borderRadius: 18,
         alignItems: "center",
-        borderRadius: 14,
 
-        shadowColor: "#ffffff",
-        shadowOffset: { width: 0.5, height: 2.5 },
-        shadowOpacity: 0.20,
-        shadowRadius: 10,
-        elevation: 15,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.25,
+        shadowRadius: 12,
+        elevation: 10,
     },
 
-    input: {
-        width: "100%",
-        backgroundColor: "#2f2f2f",
-        fontSize: 13,
-        color: "#ddd",
+    loginTitle:{
+        color: "#7A664E",
+        fontSize: 32,
+        fontFamily: "Montserrat",
+        fontWeight: "600",
+        marginBottom: 20,
+        letterSpacing: 1.5
+    },
 
+    input:{
+        width: "100%",
         paddingVertical: 12,
-        paddingHorizontal: 14,
-        borderRadius: 12,
+        paddingHorizontal: 16,
+        borderRadius: 14,
         marginBottom: 12,
-    },
 
-    passwordBox: {
-        width: "100%",
-        backgroundColor: "#2f2f2f",
-
-        flexDirection: "row",
-        alignItems: "center",
-        paddingHorizontal: 14,
-        paddingVertical: 10,
-        borderRadius: 12,
-        marginBottom: 12,
-    },
-
-    passwordinput: {
-        flex: 1,
-        fontSize: 13,
-        color: "#ddd"
-    },
-
-    button: {
-        width: "50%",
-        padding: 10,
-        borderRadius: 15,
-        backgroundColor: "#ae0000",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 5
-    },
-
-    fonteLogin: {
-        color: "white",
         fontSize: 14,
-        letterSpacing: 1
+        fontFamily: "Inter",
+        color: "#F3EDE6",
+        backgroundColor: "#372e28ff",
     },
 
-    googleContainer: {
+    passwordBox:{
+        width: "100%",
+        flexDirection: "row",
+        paddingHorizontal: 16,
+        paddingVertical: 10,
+        borderRadius: 14,
+        marginBottom: 14,
+        backgroundColor: "#372e28ff",
+    },
+
+    passwordInput:{
+        flex: 1,
+        fontSize: 14,
+        fontFamily: "Inter",
+        color: "#F3EDE6",
+    },
+
+    button:{
+        width: "60%",
+        paddingVertical: 13,
+        backgroundColor: "#7A664E",
+        borderRadius: 18,
+        marginTop: 10,
+        alignItems: "center",
+    },
+
+    buttonText:{
+        color: "#1A1410",
+        fontSize: 16,
+        fontWeight: "700",
+        letterSpacing: 0.5,
+    },
+
+    googleRow:{
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center",
-        marginTop: 15,
+        marginTop: 22,
     },
 
-    googleIcon: {
-        width: 20,
-        height: 20,
+    googleIcon:{
+        width: 22,
+        height: 22,
         resizeMode: "contain",
-        marginRight: 8
+        marginRight: 8,
     },
 
-    googleText: {
-        color: "#aaaaaa",
+    googleText:{
+        color: "#C2B8AE",
         fontSize: 12,
     },
 
-    bottomRow: {
+    bottomRow:{
         flexDirection: "row",
-        marginTop: 15,
-        alignItems: "center"
+        marginTop: 18,
     },
 
-    bottomText: {
-        color: "#aaaaaa",
+    bottomText:{
+        color: "#C2B8AE",
         fontSize: 12,
     },
 
-    bottomLink: {
-        color: "#ae0000",
+    loginLink:{
+        color: "#7A664E",
         fontSize: 12,
-        fontWeight: "bold"
-    }
+        fontWeight: "bold",
+    },
 });

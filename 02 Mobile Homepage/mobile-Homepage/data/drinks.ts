@@ -7,7 +7,7 @@ export interface DrinkProps {
 }
 
 export const drinks: DrinkProps[] = [
-  // ----------- QUENTES -----------
+
   {
     id: 1,
     nome: "Expresso",
@@ -50,8 +50,6 @@ export const drinks: DrinkProps[] = [
     descricao: "Mistura cremosa de chá preto com leite quente e especiarias suaves. Alternativa perfeita para quem quer algo quente sem café.",
     imagem: require("../assets/hotOnes/chaLatte.png")
   },
-
-  // ----------- GELADOS -----------
   {
     id: 4,
     nome: "Iced Latte",

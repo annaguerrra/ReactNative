@@ -124,79 +124,82 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#191313",
+        backgroundColor: "#1A1410",
     },
 
     loginCard:{
         width: "80%",
         padding: 25,
-        backgroundColor: "#1f1c1c",
+        backgroundColor: "#221B16",
         borderRadius: 18,
         alignItems: "center",
 
-        shadowColor: "#fff",
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.15,
-        shadowRadius: 8,
-        elevation: 12,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.25,
+        shadowRadius: 12,
+        elevation: 10,
     },
 
     loginTitle:{
-        color: "#ae0000",
+        color: "#7A664E",
         fontSize: 32,
-        fontWeight: "700",
-        letterSpacing: 1,
-        marginBottom: 15,
+        fontFamily: "Montserrat",
+        fontWeight: "600",
+        marginBottom: 20,
+        letterSpacing: 1.5
     },
 
     input:{
         width: "100%",
         paddingVertical: 12,
-        paddingHorizontal: 14,
-        backgroundColor: "#2f2f2f",
-        borderRadius: 12,
-        fontSize: 13,
-        color: "#ddd",
+        paddingHorizontal: 16,
+        borderRadius: 14,
         marginBottom: 12,
+
+        fontSize: 14,
+        fontFamily: "Inter",
+        color: "#F3EDE6",
+        backgroundColor: "#372e28ff",
     },
 
     passwordBox:{
         width: "100%",
         flexDirection: "row",
-        alignItems: "center",
-        backgroundColor: "#2f2f2f",
-        paddingHorizontal: 14,
+        paddingHorizontal: 16,
         paddingVertical: 10,
-        borderRadius: 12,
-        marginBottom: 12,
+        borderRadius: 14,
+        marginBottom: 14,
+        backgroundColor: "#372e28ff",
     },
 
     passwordInput:{
         flex: 1,
-        color: "#ddd",
-        fontSize: 13,
+        fontSize: 14,
+        fontFamily: "Inter",
+        color: "#F3EDE6",
     },
 
     button:{
         width: "60%",
-        padding: 12,
-        backgroundColor: "#ae0000",
-        borderRadius: 14,
-        marginTop: 5,
+        paddingVertical: 13,
+        backgroundColor: "#7A664E",
+        borderRadius: 18,
+        marginTop: 10,
         alignItems: "center",
     },
 
     buttonText:{
-        color: "#fff",
-        fontSize: 15,
-        fontWeight: "600",
+        color: "#1A1410",
+        fontSize: 16,
+        fontWeight: "700",
         letterSpacing: 0.5,
     },
 
     googleRow:{
         flexDirection: "row",
         alignItems: "center",
-        marginTop: 20,
+        marginTop: 22,
     },
 
     googleIcon:{
@@ -207,7 +210,7 @@ const styles = StyleSheet.create({
     },
 
     googleText:{
-        color: "#bbb",
+        color: "#C2B8AE",
         fontSize: 12,
     },
 
@@ -217,12 +220,12 @@ const styles = StyleSheet.create({
     },
 
     bottomText:{
-        color: "#aaa",
+        color: "#C2B8AE",
         fontSize: 12,
     },
 
     loginLink:{
-        color: "#ae0000",
+        color: "#7A664E",
         fontSize: 12,
         fontWeight: "bold",
     },
