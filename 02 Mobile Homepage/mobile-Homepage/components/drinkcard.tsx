@@ -9,13 +9,13 @@ export default function DrinkCard({nome, descricao, categoria, imagem}: DrinkPro
         <View>
             <TouchableOpacity onPress={() => setIsFlipped(!isFlipped)}>
                 {isFlipped ? 
-                (<View>
-                    <Text>{nome}</Text>
+                (<View style={styles.square}>
+                    <Text style={styles.cardTitleFront}>{nome}</Text>
                     <Text style={styles.cardtext}>{descricao}</Text>
-                    <Text>Categoria: {categoria}</Text>
+                    <Text style={styles.cardcategory} >Categoria: {categoria}</Text>
                 </View>) :
-                (<View>
-                    <Text>{nome}</Text>
+                (<View >
+                    <Text style={styles.cardTitleFront}>{nome}</Text>
                     <Image source={imagem} style={styles.verseImage}/>
                 </View>)}
                 
@@ -28,12 +28,38 @@ const styles = StyleSheet.create({
     verseImage:{
         width: 300,
         height: 300,
+        marginBottom: 10,
+    },
+    cardTitleFront:{
+        color: "#F3EDE6",
+        fontFamily: "Montserrat",
+        fontWeight: "semibold",
+        fontSize: 22,
+        padding: 15,
+        marginTop: 5
     },
     cardtext:{
         width: 300,
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: "Inter",
+        fontWeight: "regular",
+        padding: 10,
+        color:"#C8BEB5",
+        textAlign: "justify"
     },
-    cardTitle:{
-        
+    cardcategory:{
+        width: 300,
+        fontSize: 20,
+        fontFamily: "Inter",
+        fontWeight: "medium",
+        padding: 10,
+        color:"#F3EDE6",
+        textAlign: "justify"
+    },
+    square:{
+        width: 300,
+        height: 300,
+        backgroundColor: "#251c12ff",
+        borderRadius: 10
     }
 })
