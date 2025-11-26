@@ -2,7 +2,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, Image, View, Alert } fro
 import { useEffect, useState } from "react";
 import { DrinkProps } from "@/data/drinks";
 
-export default function DrinkCard({nome, descricao, categoria, imagem}: DrinkProps){
+export default function DrinkCard({nome, descricao, categoria, preco, imagem}: DrinkProps){
     const [isFlipped , setIsFlipped] = useState(false);
 
     return(
@@ -13,6 +13,7 @@ export default function DrinkCard({nome, descricao, categoria, imagem}: DrinkPro
                     <Text style={styles.cardTitleFront}>{nome}</Text>
                     <Text style={styles.cardtext}>{descricao}</Text>
                     <Text style={styles.cardcategory} >Categoria: {categoria}</Text>
+                    <Text style={styles.cardcategory}>Preço: R$ {preco.toFixed(2)}</Text>
                 </View>) :
                 (<View >
                     <Text style={styles.cardTitleFront}>{nome}</Text>

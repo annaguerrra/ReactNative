@@ -20,6 +20,7 @@ export default function Homepage(){
                             nome={item.nome}
                             descricao={item.descricao}
                             categoria={item.categoria}
+                            preco = {item.preco}
                             imagem={item.imagem}/>
                     </View>
                 )}>
