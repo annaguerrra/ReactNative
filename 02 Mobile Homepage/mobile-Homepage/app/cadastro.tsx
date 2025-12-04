@@ -21,7 +21,12 @@ export default function Cadastro(){
         try {
 
             if(!nome || !categoria || !descricao || !imagem || preco == "0" || preco == "0.00"){
-                console.log('preencha todos os campos')
+                Swal.fire({
+                    icon: "warning",
+                    title: "Error",
+                    text: "All the fields are required."
+                });
+                
                 return;
             }
             const imageUrl = await uploadImage();
@@ -36,7 +41,19 @@ export default function Cadastro(){
                 update: serverTimestamp(),
             };
             await addDoc(collection(db, 'drinks'), drink);
-            console.log('Successfully registered!')
+            Swal.fire({
+                title: "Successfully registered!",
+                width: 600,
+                padding: "3em",
+                color: "#716add",
+                background: "#fff url(/images/trees.png)",
+                backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                `
+            });
            
         } 
         catch (e) {
