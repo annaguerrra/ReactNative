@@ -4,7 +4,7 @@ export interface DrinkProps {
   categoria: "Quente" | "Gelado";
   descricao: string;
   imagem: any;
-  preco: number; 
+  preco: string; 
 }
 
 export const drinks: DrinkProps[] = [
@@ -14,7 +14,7 @@ export const drinks: DrinkProps[] = [
     categoria: "Quente",
     descricao: "Dose curta e concentrada de café, com crema no topo. Intenso, aromático — base para muitos outros drinks.",
     imagem: require("../assets/hotOnes/expresso.jpg"),
-    preco: 6.50
+    preco: "6.50"
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ export const drinks: DrinkProps[] = [
     categoria: "Quente",
     descricao: "Equilíbrio clássico de expresso, leite vaporizado e uma camada generosa de espuma. Toque final de cacau opcional.",
     imagem: require("../assets/hotOnes/cappuccino.jpg"),
-    preco: 10.90
+    preco: "10.90"
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const drinks: DrinkProps[] = [
     categoria: "Quente",
     descricao: "Meio a meio de café e leite quente — suave e reconfortante, ótimo para quem prefere menos intensidade.",
     imagem: require("../assets/hotOnes/comleite.jpg"),
-    preco: 8.00
+    preco: "8.00"
   },
   {
     id: 7,
@@ -38,7 +38,7 @@ export const drinks: DrinkProps[] = [
     categoria: "Quente",
     descricao: "Combinação de expresso, chocolate e leite vaporizado. Doce, encorpado e perfeito para quem ama chocolate.",
     imagem: require("../assets/hotOnes/mocha.png"),
-    preco: 12.50
+    preco: "12.50"
   },
   {
     id: 8,
@@ -46,7 +46,7 @@ export const drinks: DrinkProps[] = [
     categoria: "Quente",
     descricao: "Expresso marcado com uma pequena quantidade de espuma de leite. Intenso, com leve suavidade.",
     imagem: require("../assets/hotOnes/macchiato.png"),
-    preco: 7.50
+    preco: "7.50"
   },
   {
     id: 9,
@@ -54,7 +54,7 @@ export const drinks: DrinkProps[] = [
     categoria: "Quente",
     descricao: "Mistura cremosa de chá preto com leite quente e especiarias suaves. Alternativa perfeita para quem quer algo quente sem café.",
     imagem: require("../assets/hotOnes/chaLatte.png"),
-    preco: 11.00
+    preco: "11.00"
   },
   {
     id: 4,
@@ -62,7 +62,7 @@ export const drinks: DrinkProps[] = [
     categoria: "Gelado",
     descricao: "Expresso sobre gelo com bastante leite frio — cremoso e refrescante. Adicione xarope (baunilha/caramelo) se desejar.",
     imagem: require("../assets/icedOnes/icedLatte.png"),
-    preco: 12.00
+    preco: "12.00"
   },
   {
     id: 5,
@@ -70,7 +70,7 @@ export const drinks: DrinkProps[] = [
     categoria: "Gelado",
     descricao: "Café extraído a frio por horas, resultando em sabor suave, menos ácido e muito refrescante. Servido com gelo; opcional: um splash de água com gás.",
     imagem: require("../assets/icedOnes/coldBrew.png"),
-    preco: 13.90
+    preco: "13.90"
   },
   {
     id: 6,
@@ -78,7 +78,7 @@ export const drinks: DrinkProps[] = [
     categoria: "Gelado",
     descricao: "Bola de sorvete (baunilha) 'afogada' com uma dose de expresso quente — doce, cremoso e com contraste quente-frio.",
     imagem: require("../assets/icedOnes/affogato.png"),
-    preco: 15.00
+    preco: "15.00"
   },
   {
     id: 10,
@@ -86,7 +86,7 @@ export const drinks: DrinkProps[] = [
     categoria: "Gelado",
     descricao: "Leite frio com gelo, expresso por cima e calda de caramelo. Doce, refrescante e muito popular.",
     imagem: require("../assets/icedOnes/icedCaramel.png"),
-    preco: 14.50
+    preco: "14.50"
   },
   {
     id: 11,
@@ -94,7 +94,7 @@ export const drinks: DrinkProps[] = [
     categoria: "Gelado",
     descricao: "Café batido com gelo até formar espuma, servido bem gelado. Leve e super refrescante.",
     imagem: require("../assets/icedOnes/frappe.png"),
-    preco: 10.00
+    preco: "10.00"
   },
   {
     id: 12,
@@ -102,7 +102,7 @@ export const drinks: DrinkProps[] = [
     categoria: "Gelado",
     descricao: "Expresso gelado misturado com chocolate e leite, servido com gelo. Doce e cremoso.",
     imagem: require("../assets/icedOnes/icedMocha.png"),
-    preco: 13.00
+    preco: "13.00"
   }
 ];
 

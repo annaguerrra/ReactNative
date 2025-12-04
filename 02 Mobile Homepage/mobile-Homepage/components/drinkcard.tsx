@@ -13,7 +13,7 @@ export default function DrinkCard({nome, descricao, categoria, preco, imagem}: D
                     <Text style={styles.cardTitleFront}>{nome}</Text>
                     <Text style={styles.cardtext}>{descricao}</Text>
                     <Text style={styles.cardcategory} >Categoria: {categoria}</Text>
-                    <Text style={styles.cardcategory}>Preço: R$ {preco.toFixed(2)}</Text>
+                    <Text style={styles.cardcategory}>Preço: R$ {preco}</Text>
                 </View>) :
                 (<View >
                     <Text style={styles.cardTitleFront}>{nome}</Text>
