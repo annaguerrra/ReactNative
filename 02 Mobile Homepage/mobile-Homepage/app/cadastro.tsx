@@ -1,14 +1,14 @@
+import { View, Text, TouchableOpacity, Modal, StyleSheet, TextInput } from "react-native";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import * as ImagePicker from "expo-image-picker";
 import { db } from "@/firebaseConfig";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { useState } from "react";
-import * as ImagePicker from "expo-image-picker";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { View, Text, TouchableOpacity, Modal, FlatList, StyleSheet, TextInput } from "react-native";
-import Swal from "sweetalert2";
 
 export default function Cadastro(){
     const [ nome, setNome] = useState("");
-    const [ categoria, setCategoria] = useState("Quente"); // valor inicial válido
+    const [ categoria, setCategoria] = useState("Quente"); 
     const [ descricao, setDescricao] = useState("");
     const [imagem, setImagem] = useState<string | null>(null);
     const [ preco, setPreco] = useState("")
