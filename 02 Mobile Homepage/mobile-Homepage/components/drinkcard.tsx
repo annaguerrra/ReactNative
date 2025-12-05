@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         fontFamily: "Inter",
         fontWeight: "regular",
         padding: 10,
-        color:"#C8BEB5",
+        color: "#FFF7EF",
         textAlign: "justify"
     },
     cardcategory:{
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     square:{
         width: 300,
         height: 300,
-        backgroundColor: "#251c12ff",
+        backgroundColor: "#7A664E",
         borderRadius: 10
     }
 })
